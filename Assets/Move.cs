@@ -27,15 +27,16 @@ public class Move : MonoBehaviour
         {
             jump();
         }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
         }
+        move();
     }
 
     private void FixedUpdate()
     {
-        move();
+
     }
 
     private void jump()
@@ -48,11 +49,11 @@ public class Move : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
     }
 
     private void move()
     {
-        rb.velocity = new Vector2(horizontal * speed * Time.fixedDeltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * speed * Time.deltaTime, rb.velocity.y);
     }
 }
