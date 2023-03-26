@@ -2725,7 +2725,6 @@ GameObject:
   - component: {fileID: 1362176046}
   - component: {fileID: 1362176045}
   - component: {fileID: 1362176044}
-  - component: {fileID: 1362176043}
   - component: {fileID: 1362176047}
   m_Layer: 8
   m_Name: FlipPlatform
@@ -2749,21 +2748,6 @@ Transform:
   m_Father: {fileID: 835266053}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1362176043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362176041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11589ca9013e5384595adca0d83dc521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchObj: {fileID: 1102403106}
-  customPivot: {fileID: 290842363}
-  rotateBool: 0
 --- !u!61 &1362176044
 BoxCollider2D:
   m_ObjectHideFlags: 0
