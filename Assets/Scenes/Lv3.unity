@@ -2761,7 +2761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11589ca9013e5384595adca0d83dc521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchObj: {fileID: 0}
+  switchObj: {fileID: 1102403106}
   customPivot: {fileID: 290842363}
   rotateBool: 0
 --- !u!61 &1362176044
