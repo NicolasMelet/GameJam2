@@ -18,6 +18,7 @@ public class Controls : MonoBehaviour
     public grap_object player_grab;
     public GameObject pantin;
     private bool is_grab = false;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,14 @@ public class Controls : MonoBehaviour
     }
 
     private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            rigid.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+
+    private void FixedUpdate()
     {
         RaycastHit2D hitInfoR = Physics2D.Raycast(rayPointR.position, Vector3.right, rayDistance);
         RaycastHit2D hitInfoL = Physics2D.Raycast(rayPointL.position, transform.right, rayDistance * -1);
@@ -43,13 +52,9 @@ public class Controls : MonoBehaviour
             if ((hitInfoR.collider != null && hitInfoR.collider.gameObject.layer == layerIndex && horizontal > 0) ||
                 (hitInfoL.collider != null && hitInfoL.collider.gameObject.layer == layerIndex && horizontal < 0))
             {
-                print("Sadness within me");
                 horizontal = 0;
             }
-            else
-            {
-                pantin_rigid.velocity = new Vector2(horizontal, 0);
-            }
+            pantin_rigid.velocity = new Vector2(horizontal, 0);
         }
         else
         {
@@ -58,11 +63,6 @@ public class Controls : MonoBehaviour
                 pantin_rigid.velocity = new Vector2(0, 0);
             }
             is_grab = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            rigid.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
 
