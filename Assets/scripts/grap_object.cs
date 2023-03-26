@@ -8,6 +8,8 @@ public class grap_object : MonoBehaviour
     public Transform grabPoint;
     public Transform rayPoint;
     public float rayDistance;
+    public bool is_holding = false;
+    public GameObject pantin;
     private GameObject grabbedObject;
     private int layerIndex;
     
@@ -20,33 +22,23 @@ public class grap_object : MonoBehaviour
     void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
-
-        if (hitInfo.collider == null)
-        {
-            Debug.Log("null");
-        }
-        else if (hitInfo.collider.gameObject.layer != layerIndex)
-        {
-            Debug.Log("bad layer");
-        }
         
         if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
-            Debug.Log("in if");
             if (Input.GetKeyDown("s") && grabbedObject == null)
             {
+                is_holding = true;
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 grabbedObject.transform.SetParent(transform);
-                Debug.Log("g_key");
             }
 
             else if (Input.GetKeyDown("s"))
             {
+                is_holding = false;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;
-                Debug.Log("f_key");
             }
         }
     }
