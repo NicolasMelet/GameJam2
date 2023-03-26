@@ -19,6 +19,7 @@ public class Controls : MonoBehaviour
     public LayerMask groundLayer;
     public grap_object player_grab;
     public GameObject pantin;
+    public SpriteRenderer spriteRender;
     private bool is_grab = false;
     public Animator animator;
 
@@ -36,6 +37,10 @@ public class Controls : MonoBehaviour
         {
             rigid.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
+
+        flip_player(rigid.velocity.x);
+        float characterVelocity = Mathf.Abs(rigid.velocity.x);
+        animator.SetFloat("Speed", characterVelocity);
     }
 
     private void FixedUpdate()
@@ -82,5 +87,16 @@ public class Controls : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+    }
+
+    void flip_player(float _velocity)
+    {
+        if (_velocity > 1.0f)
+        {
+            spriteRender.flipX = false;
+        } else if (_velocity < -1.0f)
+        {
+            spriteRender.flipX = true;
+        }
     }
 }
