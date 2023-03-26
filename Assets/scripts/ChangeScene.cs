@@ -10,7 +10,7 @@ public class ChangeScene : MonoBehaviour
     
     void Start()
     {
-        layerIndex = LayerMask.NameToLayer("Object");
+        layerIndex = LayerMask.NameToLayer("CenterObj");
     }
     // Start is called before the first frame update
     
