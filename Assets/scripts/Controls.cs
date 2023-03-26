@@ -11,6 +11,7 @@ public class Controls : MonoBehaviour
     public float horizontal = 0;
     public float rayDistance;
     private int layerIndex;
+    private int layerIndex2;
     public Transform rayPointR;
     public Transform rayPointL;
     public Transform ownR;
@@ -29,6 +30,7 @@ public class Controls : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         pantin_rigid = pantin.GetComponent<Rigidbody2D>();
         layerIndex = LayerMask.NameToLayer("Ground");
+        layerIndex2 = LayerMask.NameToLayer("FlipPlatform");
     }
 
     private void Update()
@@ -57,8 +59,8 @@ public class Controls : MonoBehaviour
             {
                 is_grab = true;
             }
-            if ((hitInfoR.collider != null && hitInfoR.collider.gameObject.layer == layerIndex && horizontal > 0) ||
-                (hitInfoL.collider != null && hitInfoL.collider.gameObject.layer == layerIndex && horizontal < 0) ||
+            if ((hitInfoR.collider != null && hitInfoR.collider.gameObject.layer == layerIndex2 && horizontal > 0) ||
+                (hitInfoL.collider != null && hitInfoL.collider.gameObject.layer == layerIndex2 && horizontal < 0) ||
                 (ownInfoR.collider != null && ownInfoR.collider.gameObject.layer == layerIndex && horizontal > 0) ||
                 (ownInfoL.collider != null && ownInfoL.collider.gameObject.layer == layerIndex && horizontal < 0))
             {
