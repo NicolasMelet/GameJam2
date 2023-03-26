@@ -37,7 +37,6 @@ public class grap_object : MonoBehaviour
             {
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
                 Debug.Log("g_key");
             }
