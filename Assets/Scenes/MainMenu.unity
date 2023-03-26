@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c8feb5b1d178a428c6c8fa105adf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Main scene
+  levelToLoad: Lv0
   settingsWindow: {fileID: 2133588194}
 --- !u!114 &373595872
 MonoBehaviour:
