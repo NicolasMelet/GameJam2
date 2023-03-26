@@ -13,6 +13,7 @@ public class Controls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector2(0, -3);
         rigid = GetComponent<Rigidbody2D>();
     }
 
