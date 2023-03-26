@@ -553,6 +553,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540387267}
   m_CullTransparentMesh: 1
+--- !u!1 &540411497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540411498}
+  m_Layer: 0
+  m_Name: RayPositionR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540411498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540411497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6, y: -0.4, z: -1}
+  m_LocalScale: {x: 0.2, y: 0.08672, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1474761537}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &551579966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1592,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &972076787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972076788}
+  m_Layer: 0
+  m_Name: RayPositionL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &972076788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972076787}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6, y: -0.4, z: -1}
+  m_LocalScale: {x: 1.17846, y: 0.08672, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1474761537}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981053585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2326,6 @@ GameObject:
   - component: {fileID: 1474761537}
   - component: {fileID: 1474761536}
   - component: {fileID: 1474761535}
-  - component: {fileID: 1474761534}
   - component: {fileID: 1474761533}
   - component: {fileID: 1474761532}
   - component: {fileID: 1474761531}
@@ -2308,9 +2369,11 @@ MonoBehaviour:
   speed: 9
   jumpForce: 100
   horizontal: 0
-  rayDistance: 0.2
+  rayDistance: 0.5
   rayPointR: {fileID: 1542664156}
   rayPointL: {fileID: 2073921125}
+  ownR: {fileID: 540411498}
+  ownL: {fileID: 972076788}
   groundCheck: {fileID: 551579967}
   groundLayer:
     serializedVersion: 2
@@ -2344,24 +2407,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0030494}
   m_EdgeRadius: 0
---- !u!255 &1474761534
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474761530}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 2.6399999}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!50 &1474761535
 Rigidbody2D:
   serializedVersion: 4
@@ -2450,6 +2495,8 @@ Transform:
   - {fileID: 821524531}
   - {fileID: 1173743360}
   - {fileID: 551579967}
+  - {fileID: 540411498}
+  - {fileID: 972076788}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2614,16 +2661,6 @@ Tilemap:
   m_GameObject: {fileID: 1631292876}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 4, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -9, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -3510,8 +3547,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: a34689eb9bbbb5e458f5655da343e44d, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 156aaa5661bebdf4b9f7953c9081b8e7, type: 2}
   - m_RefCount: 1
@@ -3541,8 +3578,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1584207869, guid: 8163cd1ccdd03054189188b30a7f3924, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 523154577, guid: 8163cd1ccdd03054189188b30a7f3924, type: 3}
   - m_RefCount: 1
@@ -3568,7 +3605,7 @@ Tilemap:
   - m_RefCount: 32
     m_Data: {fileID: 1252859030, guid: 8163cd1ccdd03054189188b30a7f3924, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 89
+  - m_RefCount: 88
     m_Data:
       e00: 1
       e01: 0
@@ -3587,7 +3624,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 89
+  - m_RefCount: 88
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3633,11 +3670,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1631292878}
     m_ColliderPaths:
-    - - X: 50000000
-        Y: -10000000
-      - X: 98000000
-        Y: -10000000
-      - X: 100000000
+    - - X: 100000000
         Y: -8200000
       - X: 100000000
         Y: 58200000
@@ -3655,12 +3688,8 @@ CompositeCollider2D:
         Y: -8200000
       - X: -88400000
         Y: -10000000
-      - X: 40000000
+      - X: 98000000
         Y: -10000000
-      - X: 40000000
-        Y: -20000000
-      - X: 50000000
-        Y: -20000000
     - - X: -70000000
         Y: 10000000
       - X: -70000000
@@ -3671,9 +3700,7 @@ CompositeCollider2D:
         Y: 10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 4.999971, y: -2}
-      - {x: 5.0000296, y: -1}
-      - {x: 9.800007, y: -0.9999934}
+    - - {x: 9.799991, y: -1}
       - {x: 10, y: -0.8199884}
       - {x: 9.9999895, y: 5.8200083}
       - {x: 9.759992, y: 6}
@@ -3683,8 +3710,6 @@ CompositeCollider2D:
       - {x: -8.999998, y: -0.7600038}
       - {x: -8.979997, y: -0.8200035}
       - {x: -8.839988, y: -1}
-      - {x: 4, y: -1.0000294}
-      - {x: 4.000029, y: -2}
     - - {x: 8, y: 1.0000294}
       - {x: -7, y: 1.0000294}
       - {x: -6.9999704, y: 4}
