@@ -30,6 +30,7 @@ public class grap_object : MonoBehaviour
                 is_holding = true;
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
             }
 
